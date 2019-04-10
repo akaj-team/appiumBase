@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Default Test Suite]">
+  <parameter name="app" value="jp.co.trygroup.tryit.student.ui.staging_v3.1.19.apk"/>
+  <parameter name="server" value="http://127.0.0.1:4723/wd/hub"/>
+  <parameter name="platformVersion" value="7.0"/>
+  <parameter name="platformName" value="android"/>
+  <parameter name="deviceName" value="Nexus 5"/>
+  <test name="Android Test(failed)">
+    <parameter name="app" value="jp.co.trygroup.tryit.student.ui.staging_v3.1.19.apk"/>
+    <parameter name="platformVersion" value="7.0"/>
+    <parameter name="platformName" value="android"/>
+    <parameter name="deviceName" value="Nexus 5"/>
+    <classes>
+      <class name="TestRunner">
+        <methods>
+          <include name="setUpClass"/>
+          <include name="runScenario" invocation-numbers="0 1 2"/>
+          <include name="setUpClass"/>
+          <include name="tearDownClass"/>
+        </methods>
+      </class> <!-- TestRunner -->
+    </classes>
+  </test> <!-- Android Test(failed) -->
+</suite> <!-- Failed suite [Default Test Suite] -->
