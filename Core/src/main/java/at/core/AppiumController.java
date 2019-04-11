@@ -34,7 +34,7 @@ public class AppiumController {
         AppiumDriver driver = null;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        File classpathRoot = new File(System.getProperty("user.dir"));
+        File classpathRoot = new File(System.getProperty("user.dir").replace("/App", ""));
 
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, xmlTest.getParameter(MobileCapabilityType.DEVICE_NAME));
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, xmlTest.getParameter(MobileCapabilityType.PLATFORM_VERSION));
@@ -45,7 +45,7 @@ public class AppiumController {
             capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, xmlTest.getParameter(AndroidMobileCapabilityType.APP_PACKAGE));
             capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, xmlTest.getParameter(AndroidMobileCapabilityType.APP_ACTIVITY));
 
-            File appDir = new File(classpathRoot, "/appfile/Android");
+            File appDir = new File(classpathRoot, "/App/appfile/Android");
             File appPath = new File(appDir, xmlTest.getParameter(MobileCapabilityType.APP));
             capabilities.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
             driver = new AndroidDriver(new URL(xmlTest.getParameter("server")), capabilities);
@@ -54,7 +54,7 @@ public class AppiumController {
             capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
             capabilities.setCapability("useJSONSource", true);
 
-            File appDir = new File(classpathRoot, "/appfile/iOS/");
+            File appDir = new File(classpathRoot, "/App/appfile/iOS/");
             File appPath = new File(appDir, xmlTest.getParameter(MobileCapabilityType.APP));
             capabilities.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
             driver = new IOSDriver<>(new URL(xmlTest.getParameter("server")), capabilities);
@@ -77,7 +77,7 @@ public class AppiumController {
 
     private synchronized void startDefaultServer() throws MalformedURLException {
         XmlTest xmlTest = new XmlTest();
-        xmlTest.setParameters(defaultIosParameters());
+        xmlTest.setParameters(defaultAndroidParameters());
         start(xmlTest);
     }
 
