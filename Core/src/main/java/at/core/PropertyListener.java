@@ -1,42 +1,40 @@
 package at.core;
 
-import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
 import org.testng.TestListenerAdapter;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Properties;
+import java.io.OutputStreamWriter;
+import java.util.Map;
 
+/**
+ * @author tien.hoang
+ */
 public class PropertyListener extends TestListenerAdapter {
-
     @Override
-    public void onFinish(ITestContext context) {
-        super.onFinish(context);
-        RemoteWebDriver driver = (RemoteWebDriver) context.getAttribute("webDriver");
-        Properties prop = new Properties();
-        Capabilities capabilities = driver.getCapabilities();
+    public void onStart(ITestContext iTestContext) {
+        String fileName = iTestContext.getName().replace(" ", "_").concat(".properties");
+        String reportDirectory = new File(System.getProperty("user.dir")).getAbsolutePath() + "/target/classifications";
+        File directory = new File(reportDirectory);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
+        File destFile = new File(reportDirectory + "/" + fileName);
         try {
-            OutputStream output = new FileOutputStream("target/cucumber-reports/browser.properties");
-            prop.setProperty("BrowserName", capabilities.getBrowserName());
-            prop.setProperty("BrowserVersion", capabilities.getVersion());
-            prop.setProperty("Platform", capabilities.getPlatform().name());
-            String server = context.getCurrentXmlTest().getSuite().getParameter("server");
-            if (!server.equals("")) {
-                prop.setProperty("Server", context.getCurrentXmlTest().getSuite().getParameter("server"));
+            FileOutputStream fos = new FileOutputStream(destFile);
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+
+            for (Map.Entry<String, String> entry : iTestContext.getCurrentXmlTest().getAllParameters().entrySet()) {
+                bw.write(entry.getKey() + ":" + entry.getValue());
+                bw.newLine();
             }
-            prop.store(output, null);
-            output.close();
-        } catch (IOException e) {
+            bw.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void onStart(ITestContext testContext) {
-        super.onStart(testContext);
+        super.onStart(iTestContext);
     }
 }
-
