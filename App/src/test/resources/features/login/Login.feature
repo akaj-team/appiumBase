@@ -15,4 +15,3 @@ Feature: Test user login flow
             | userName                | passWord |
             | khangtm92+062@gmail.com |          |
             |                         | 12345678 |
-            |                         |          |
