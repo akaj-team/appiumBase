@@ -15,7 +15,8 @@
         <parameter name="platformName" value="android"/>
         <parameter name="deviceName" value="Galaxy S8"/>
         <parameter name="platformVersion" value="8.0.0"/>
-        <parameter name="app" value="jp.co.trygroup.tryit.student.ui.staging_v3.1.22.apk"/>
+        <parameter name="appPackage" value="jp.co.trygroup.tryit.student.ui.staging"/>
+        <parameter name="appActivity" value="jp.co.trygroup.tryit.student.ui.initial.SplashActivity_"/>
         <classes>
             <class name="TestRunner"/>
         </classes>

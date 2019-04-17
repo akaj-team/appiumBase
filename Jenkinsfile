@@ -32,7 +32,7 @@ pipeline {
                                             cucumber fileIncludePattern: "${APP_MODULE}/target/cucumber-reports/*.json",
                                                     sortingMethod: 'ALPHABETICAL',
                                                     classifications: [
-                                                            ['key'  : 'AppPackage',
+                                                            ['key'  : 'App Package',
                                                              'value': props.appPackage
                                                             ],
                                                             ['key'  : 'App Activity',
@@ -44,13 +44,13 @@ pipeline {
                                                             ['key'  : 'Server',
                                                              'value': props.server
                                                             ],
-                                                            ['key'  : 'PlatformVersion',
+                                                            ['key'  : 'Platform Version',
                                                              'value': props.platformVersion
                                                             ],
-                                                            ['key'  : 'PlatformName',
+                                                            ['key'  : 'Platform Name',
                                                              'value': props.platformName
                                                             ],
-                                                            ['key'  : 'DeviceName',
+                                                            ['key'  : 'Device Name',
                                                              'value': props.deviceName
                                                             ]
                                                     ]
