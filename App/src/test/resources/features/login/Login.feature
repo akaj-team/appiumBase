@@ -14,5 +14,5 @@ Feature: Test user login flow
     Examples:
       | userName                | passWord |
       | khangtm92+062@gmail.com |          |
-      |                         | 12345678 |
-      |                         |          |
+#      |                         | 12345678 |
+#      |                         |          |

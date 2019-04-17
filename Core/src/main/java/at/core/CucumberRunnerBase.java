@@ -10,7 +10,7 @@ import org.testng.annotations.Listeners;
 /**
  * CucumberRunnerBase
  */
-@Listeners({ScreenshotListener.class})
+@Listeners({ScreenshotListener.class, PropertyListener.class, ReportListener.class})
 public class CucumberRunnerBase extends AbstractTestNGCucumberTests {
 
     @DataProvider
