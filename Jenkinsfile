@@ -25,7 +25,7 @@ pipeline {
                             post {
                                 always {
                                     archiveArtifacts artifacts: "${APP_MODULE}/target/cucumber-reports/,${APP_MODULE}/target/screenshots/,${APP_MODULE}/target/GitHubReport.json"
-                                  //  junit "${APP_MODULE}/target/cucumber-reports/*.xml"
+                                    junit "${APP_MODULE}/target/cucumber-reports/*.xml"
                                     script {
                                         def props = readProperties interpolate: true, file: "${APP_MODULE}/target/classifications/Android_Test.properties"
                                         cucumber fileIncludePattern: "${APP_MODULE}/target/cucumber-reports/*.json",

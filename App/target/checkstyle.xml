@@ -1,52 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="6.18">
-<file name="/Users/hanhnguyenm./Desktop/LnC-Appium/App/src/test/java/at_asiantech/utils/Constant.java">
+<file name="/Users/mba0163/appiumBase/App/src/test/java/at_asiantech/utils/Constant.java">
+<error line="0" severity="warning" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
+<error line="9" column="32" severity="warning" message="Name &apos;TryIT_BUNDLE_ID&apos; must match pattern &apos;^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
+</file>
+<file name="/Users/mba0163/appiumBase/App/src/test/java/at_asiantech/pages/LoginOrRegister/LoginOrRegisterPageAndroid.java">
+<error line="0" severity="warning" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
+<error line="15" column="5" severity="warning" message="Method &apos;openLoginScreen&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="21" column="5" severity="warning" message="Method &apos;isPageDisplayed&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="26" column="5" severity="warning" message="Method &apos;navigateTo&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+</file>
+<file name="/Users/mba0163/appiumBase/App/src/test/java/at_asiantech/pages/LoginOrRegister/LoginOrRegisterPageIOS.java">
+<error line="16" column="5" severity="warning" message="Method &apos;openLoginScreen&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="30" column="5" severity="warning" message="Method &apos;isPageDisplayed&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="43" column="5" severity="warning" message="Method &apos;navigateTo&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+</file>
+<file name="/Users/mba0163/appiumBase/App/src/test/java/at_asiantech/pages/LoginOrRegister/LoginOrRegisterPage.java">
+<error line="5" column="8" severity="warning" message="Unused import - at_asiantech.utils.Constant." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
+<error line="18" column="26" severity="warning" message="Variable &apos;btnSignIn&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
+<error line="24" column="5" severity="warning" message="Method &apos;openLoginScreen&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="29" column="5" severity="warning" message="Method &apos;openApp&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+</file>
+<file name="/Users/mba0163/appiumBase/App/src/test/java/at_asiantech/pages/Login/LoginPageIOS.java">
 <error line="0" severity="warning" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 </file>
-<file name="/Users/hanhnguyenm./Desktop/LnC-Appium/App/src/test/java/at_asiantech/pages/LoginOrRegister/LoginOrRegisterPageAndroid.java">
+<file name="/Users/mba0163/appiumBase/App/src/test/java/at_asiantech/pages/Login/LoginPageAndroid.java">
+</file>
+<file name="/Users/mba0163/appiumBase/App/src/test/java/at_asiantech/pages/Login/LoginPage.java">
+<error line="51" column="5" severity="warning" message="Method &apos;waitForLoginPage&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="55" column="5" severity="warning" message="Method &apos;onClickForgotPassword&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="59" column="5" severity="warning" message="Method &apos;onDisplayWebViewForgotPassword&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="69" column="5" severity="warning" message="Method &apos;inputUserName&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="74" column="5" severity="warning" message="Method &apos;inputPassword&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="79" column="5" severity="warning" message="Method &apos;isLoginButtonDisplayed&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="90" column="5" severity="warning" message="Method &apos;navigateTo&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="99" column="5" severity="warning" message="Method &apos;isPageDisplayed&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+</file>
+<file name="/Users/mba0163/appiumBase/App/src/test/java/at_asiantech/stepdefs/login/LoginDefinitions.java">
 <error line="0" severity="warning" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
-<error line="14" column="5" severity="warning" message="Method &apos;openLoginScreen&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="20" column="5" severity="warning" message="Method &apos;isPageDisplayed&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="25" column="5" severity="warning" message="Method &apos;navigateTo&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
+<error line="19" severity="warning" message="Line has trailing spaces." source="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck"/>
 </file>
-<file name="/Users/hanhnguyenm./Desktop/LnC-Appium/App/src/test/java/at_asiantech/pages/LoginOrRegister/LoginOrRegisterPageIOS.java">
-<error line="14" column="5" severity="warning" message="Method &apos;openLoginScreen&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="28" column="5" severity="warning" message="Method &apos;isPageDisplayed&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="41" column="5" severity="warning" message="Method &apos;navigateTo&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-</file>
-<file name="/Users/hanhnguyenm./Desktop/LnC-Appium/App/src/test/java/at_asiantech/pages/LoginOrRegister/LoginOrRegisterPage.java">
-<error line="17" column="26" severity="warning" message="Variable &apos;btnSignIn&apos; must be private and have accessor methods." source="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck"/>
-<error line="23" column="5" severity="warning" message="Method &apos;openLoginScreen&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="28" column="5" severity="warning" message="Method &apos;openApp&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-</file>
-<file name="/Users/hanhnguyenm./Desktop/LnC-Appium/App/src/test/java/at_asiantech/pages/Login/LoginPageIOS.java">
-<error line="0" severity="warning" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
-</file>
-<file name="/Users/hanhnguyenm./Desktop/LnC-Appium/App/src/test/java/at_asiantech/pages/Login/LoginPageAndroid.java">
-</file>
-<file name="/Users/hanhnguyenm./Desktop/LnC-Appium/App/src/test/java/at_asiantech/pages/Login/LoginPage.java">
-<error line="4" column="8" severity="warning" message="Unused import - at.core.AppiumController." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
-<error line="11" column="8" severity="warning" message="Unused import - org.junit.Assert." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
-<error line="12" column="8" severity="warning" message="Unused import - org.openqa.selenium.NoSuchElementException." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
-<error line="13" column="8" severity="warning" message="Unused import - org.openqa.selenium.support.ui.WebDriverWait." source="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
-<error line="54" column="5" severity="warning" message="Method &apos;waitForLoginPage&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="55" column="34" severity="warning" message="&apos;10&apos; is a magic number." source="com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck"/>
-<error line="58" column="5" severity="warning" message="Method &apos;onClickForgotPassword&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="62" column="5" severity="warning" message="Method &apos;onDisplayWebViewForgotPassword&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="73" column="5" severity="warning" message="Method &apos;inputUserName&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="78" column="5" severity="warning" message="Method &apos;inputPassword&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="83" column="5" severity="warning" message="Method &apos;isLoginButtonDisplayed&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="94" column="5" severity="warning" message="Method &apos;navigateTo&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-<error line="103" column="5" severity="warning" message="Method &apos;isPageDisplayed&apos; is not designed for extension - needs to be abstract, final or empty." source="com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck"/>
-</file>
-<file name="/Users/hanhnguyenm./Desktop/LnC-Appium/App/src/test/java/at_asiantech/stepdefs/login/LoginDefinitions.java">
-<error line="0" severity="warning" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
-</file>
-<file name="/Users/hanhnguyenm./Desktop/LnC-Appium/App/src/test/java/TestRunner.java">
+<file name="/Users/mba0163/appiumBase/App/src/test/java/TestRunner.java">
 <error line="0" severity="warning" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 <error line="0" severity="warning" message="Missing package-info.java file." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck"/>
 <error line="4" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck"/>
 </file>
-<file name="/Users/hanhnguyenm./Desktop/LnC-Appium/App/src/test/java/ParallelTestRunner.java">
+<file name="/Users/mba0163/appiumBase/App/src/test/java/ParallelTestRunner.java">
 </file>
 </checkstyle>
