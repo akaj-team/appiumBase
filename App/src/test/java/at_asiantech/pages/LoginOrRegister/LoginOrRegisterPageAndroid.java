@@ -1,25 +1,26 @@
 package at_asiantech.pages.LoginOrRegister;
 
-import at_asiantech.utils.Constant;
+import at.base.Const;
 import io.appium.java_client.MobileDriver;
 
 /**
  * @author tien.hoang
  */
 public class LoginOrRegisterPageAndroid extends LoginOrRegisterPage {
+
     public LoginOrRegisterPageAndroid(MobileDriver driver) {
         super(driver);
     }
 
     @Override
     public void openLoginScreen() {
-        waitForElement(btnSignIn, Constant.DEFAULT_TIME_OUT);
+        waitForElementDisplay(btnSignIn, Const.TIME_OUT_NORMAL_ELEMENT);
         btnSignIn.click();
     }
 
     @Override
     public boolean isPageDisplayed() {
-        return isElementPresented(btnSignIn);
+        return btnSignIn.isDisplayed();
     }
 
     @Override

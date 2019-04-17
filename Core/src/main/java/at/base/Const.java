@@ -8,6 +8,6 @@ public class Const {
     public static final int TIME_OUT_NORMAL_ELEMENT = 10;
 
     private Const() {
-        //no-opt
+        // No-opt
     }
 }
