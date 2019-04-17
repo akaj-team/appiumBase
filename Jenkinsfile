@@ -27,32 +27,34 @@ pipeline {
                                     archiveArtifacts artifacts: "${APP_MODULE}/target/cucumber-reports/,${APP_MODULE}/target/screenshots/,${APP_MODULE}/target/GitHubReport.json"
                                     junit "${APP_MODULE}/target/cucumber-reports/*.xml"
                                     script {
-                                        def props = readProperties interpolate: true, file: "${APP_MODULE}/target/classifications/Android_Test.properties"
-                                        cucumber fileIncludePattern: "${APP_MODULE}/target/cucumber-reports/*.json",
-                                                sortingMethod: 'ALPHABETICAL',
-                                                classifications: [
-                                                        ['key'  : 'AppPackage',
-                                                         'value': props.appPackage
-                                                        ],
-                                                        ['key'  : 'App Activity',
-                                                         'value': props.appActivity
-                                                        ],
-                                                        ['key'  : 'App',
-                                                         'value': props.app
-                                                        ],
-                                                        ['key'  : 'Server',
-                                                         'value': props.server
-                                                        ],
-                                                        ['key'  : 'PlatformVersion',
-                                                         'value': props.platformVersion
-                                                        ],
-                                                        ['key'  : 'PlatformName',
-                                                         'value': props.platformName
-                                                        ],
-                                                        ['key'  : 'DeviceName',
-                                                         'value': props.deviceName
-                                                        ]
-                                                ]
+                                        if (fileExists "${APP_MODULE}/target/classifications/Android_Test.properties") {
+                                            def props = readProperties interpolate: true, file: "${APP_MODULE}/target/classifications/Android_Test.properties"
+                                            cucumber fileIncludePattern: "${APP_MODULE}/target/cucumber-reports/*.json",
+                                                    sortingMethod: 'ALPHABETICAL',
+                                                    classifications: [
+                                                            ['key'  : 'AppPackage',
+                                                             'value': props.appPackage
+                                                            ],
+                                                            ['key'  : 'App Activity',
+                                                             'value': props.appActivity
+                                                            ],
+                                                            ['key'  : 'App',
+                                                             'value': props.app
+                                                            ],
+                                                            ['key'  : 'Server',
+                                                             'value': props.server
+                                                            ],
+                                                            ['key'  : 'PlatformVersion',
+                                                             'value': props.platformVersion
+                                                            ],
+                                                            ['key'  : 'PlatformName',
+                                                             'value': props.platformName
+                                                            ],
+                                                            ['key'  : 'DeviceName',
+                                                             'value': props.deviceName
+                                                            ]
+                                                    ]
+                                        }
                                     }
                                     stash includes: "${APP_MODULE}/target/GitHubReport.json", name: 'cucumber-report'
                                 }
