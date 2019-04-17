@@ -1,6 +1,7 @@
 package at_asiantech.pages.LoginOrRegister;
 
 import at.base.BasePage;
+import at.base.Const;
 import at_asiantech.utils.Constant;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
@@ -21,7 +22,7 @@ public abstract class LoginOrRegisterPage extends BasePage {
     }
 
     public void openLoginScreen() {
-        waitForElement(btnSignIn, Constant.DEFAULT_TIME_OUT);
+        waitForElementDisplay(btnSignIn, Const.TIME_OUT_NORMAL_ELEMENT);
         btnSignIn.click();
     }
 
