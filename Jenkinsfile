@@ -27,7 +27,7 @@ pipeline {
                                     archiveArtifacts artifacts: "${APP_MODULE}/target/cucumber-reports/,${APP_MODULE}/target/screenshots/,${APP_MODULE}/target/GitHubReport.json"
                                     junit "${APP_MODULE}/target/cucumber-reports/*.xml"
                                     script {
-                                        if (fileExists "${APP_MODULE}/target/classifications/Android_Test.properties") {
+                                        if (fileExists("${APP_MODULE}/target/classifications/Android_Test.properties")) {
                                             def props = readProperties interpolate: true, file: "${APP_MODULE}/target/classifications/Android_Test.properties"
                                             cucumber fileIncludePattern: "${APP_MODULE}/target/cucumber-reports/*.json",
                                                     sortingMethod: 'ALPHABETICAL',
