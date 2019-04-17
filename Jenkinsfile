@@ -123,7 +123,6 @@ pipeline {
                                 }
                             }
                             options { skipDefaultCheckout() }
-                            options { skipDefaultCheckout() }
                             steps("Preparing source code & Installing gems") {
                                 unstash('source-code')
                                 unstash('checkstyle')
