@@ -12,3 +12,7 @@ buildNumber.properties
 *.iws
 src/test/resources/driver/
 .DS_Store
+tmp
+jsontarget/
+src/test/java/generate/
+target/
