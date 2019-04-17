@@ -3,7 +3,6 @@ package at.base;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,24 +25,15 @@ public abstract class BasePage {
         return driver;
     }
 
-    public void waitForElement(MobileElement element, int timeOutInSecond) {
-        isElementPresented(element, timeOutInSecond);
+    public void waitForElementDisplay(MobileElement element, int timeOutInSecond) {
+        isElementDisplayed(element, timeOutInSecond);
     }
 
     public abstract boolean isPageDisplayed();
 
     public abstract void navigateTo();
 
-    protected final boolean isElementPresented(final WebElement element) {
-        try {
-            element.isDisplayed();
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-        return true;
-    }
-
-    protected boolean isElementPresented(WebElement element, int timeOutInSecond) {
+    private boolean isElementDisplayed(WebElement element, int timeOutInSecond) {
         boolean isVisible = false;
         WebDriverWait wait = new WebDriverWait(driver, timeOutInSecond);
         try {
@@ -51,7 +41,7 @@ public abstract class BasePage {
                 isVisible = true;
             }
         } catch (Exception e) {
-            //no-opt
+            // No-opt
         }
         driver.manage().timeouts().implicitlyWait(Const.TIME_OUT_MIN_ELEMENT, TimeUnit.SECONDS);
         return isVisible;

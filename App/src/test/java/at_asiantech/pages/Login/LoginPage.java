@@ -1,17 +1,13 @@
 package at_asiantech.pages.Login;
 
 import at.base.BasePage;
-import at.core.AppiumController;
+import at.base.Const;
 import at.core.PageFactory;
 import at_asiantech.pages.LoginOrRegister.LoginOrRegisterPage;
-import at_asiantech.utils.Constant;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import org.junit.Assert;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Set;
 
@@ -53,7 +49,7 @@ public abstract class LoginPage extends BasePage {
     }
 
     public void waitForLoginPage() {
-        waitForElement(edtEmail, 10);
+        waitForElementDisplay(edtEmail, Const.TIME_OUT_NORMAL_ELEMENT);
     }
 
     public void onClickForgotPassword() {
@@ -63,7 +59,6 @@ public abstract class LoginPage extends BasePage {
     public Boolean onDisplayWebViewForgotPassword(String url) {
         Set<String> contextNames = getDrive().getContextHandles();
         for (String contextName : contextNames) {
-            System.out.println(contextName);
             if (contextName.contains("WEBVIEW")) {
                 return true;
             }
@@ -86,7 +81,7 @@ public abstract class LoginPage extends BasePage {
             try {
                 return btnLogin.isDisplayed();
             } catch (Exception ignored) {
-                //no-opt
+                // No-opt
             }
         }
         return false;
@@ -103,6 +98,6 @@ public abstract class LoginPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return isElementPresented(edtEmail, Constant.DEFAULT_TIME_OUT);
+        return edtEmail.isDisplayed();
     }
 }
