@@ -13,8 +13,8 @@
     <!--</test>-->
     <test name="Android Test" enabled="true">
         <parameter name="platformName" value="android"/>
-        <parameter name="deviceName" value="Galaxy S8"/>
-        <parameter name="platformVersion" value="8.0.0"/>
+        <parameter name="deviceName" value="Pixel XL API 28"/>
+        <parameter name="platformVersion" value="9"/>
         <parameter name="appPackage" value="jp.co.trygroup.tryit.student.ui.staging"/>
         <parameter name="appActivity" value="jp.co.trygroup.tryit.student.ui.initial.SplashActivity_"/>
         <classes>

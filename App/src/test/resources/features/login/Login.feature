@@ -10,7 +10,6 @@ Feature: Test user login flow
         When I input username with "<userName>"
         And I input password with "<passWord>"
         Then Button ログイン Login button is not displayed
-
         Examples:
             | userName                | passWord |
             | khangtm92+062@gmail.com |          |
