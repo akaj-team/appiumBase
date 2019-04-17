@@ -21,7 +21,7 @@ public class CucumberRunnerBase extends AbstractTestNGCucumberTests {
     @BeforeClass(alwaysRun = true)
     public void setUpClass(final ITestContext context) throws Exception {
         super.setUpClass();
-        AppiumController.instance.start(context.getCurrentXmlTest());
+        AppiumController.instance.start(context.getCurrentXmlTest(), false);
     }
 
     @AfterClass(alwaysRun = true)

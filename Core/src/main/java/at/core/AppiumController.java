@@ -12,7 +12,9 @@ import org.testng.xml.XmlTest;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class AppiumController {
@@ -30,10 +32,11 @@ public class AppiumController {
         return driverFactoryThread.get();
     }
 
-    public synchronized void start(XmlTest xmlTest) throws MalformedURLException {
+    public synchronized void start(XmlTest xmlTest, boolean isDefault) throws MalformedURLException {
         AppiumDriver driver = null;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
+
         File classpathRoot = new File(System.getProperty("user.dir").replace("/App", ""));
 
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, xmlTest.getParameter(MobileCapabilityType.DEVICE_NAME));
@@ -47,7 +50,11 @@ public class AppiumController {
 
             File appDir = new File(classpathRoot, "/App/appfile/Android");
             File appPath = new File(appDir, xmlTest.getParameter(MobileCapabilityType.APP));
-            capabilities.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
+            if (isDefault) {
+                capabilities.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
+            } else {
+                capabilities.setCapability(MobileCapabilityType.APP, xmlTest.getParameter(MobileCapabilityType.APP));
+            }
             driver = new AndroidDriver(new URL(xmlTest.getParameter("server")), capabilities);
         } else if (xmlTest.getParameter(MobileCapabilityType.PLATFORM_NAME).equalsIgnoreCase("ios")) {
             capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
@@ -78,7 +85,7 @@ public class AppiumController {
     private synchronized void startDefaultServer() throws MalformedURLException {
         XmlTest xmlTest = new XmlTest();
         xmlTest.setParameters(defaultAndroidParameters());
-        start(xmlTest);
+        start(xmlTest, true);
     }
 
     private Map<String, String> defaultAndroidParameters() {
