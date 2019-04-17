@@ -1,34 +1,52 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 150.102 s <<< FAILURE! - in TestSuite
-runScenario(TestRunner)  Time elapsed: 34.357 s  <<< FAILURE!
-org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: btnSignIn})
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@4a9419d7 (tried for 1 second(s) with 500 milliseconds interval)
-Caused by: org.openqa.selenium.NoSuchElementException: 
-Cannot locate an element using By.chained({By.id: btnSignIn})
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Tests run: 7, Failures: 4, Errors: 0, Skipped: 3, Time elapsed: 48.96 s <<< FAILURE! - in TestSuite
+setUpClass(ParallelTestRunner)  Time elapsed: 26.712 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+It is impossible to create a new session because 'createSession' which takes HttpClient, InputStream and long was not found or it is not accessible
 Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
-System info: host: 'MBA0087.local', ip: 'fe80:0:0:0:8f9:749d:f3cf:ebb3%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14', java.version: '1.8.0_181'
+System info: host: 'MBA0163.local', ip: 'fe80:0:0:0:c44:7e9f:fdec:1b3d%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.2', java.version: '1.8.0_171'
 Driver info: driver.version: AndroidDriver
+Caused by: java.lang.reflect.InvocationTargetException
+Caused by: org.openqa.selenium.WebDriverException: 
+An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device.
+Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
+System info: host: 'MBA0163.local', ip: 'fe80:0:0:0:c44:7e9f:fdec:1b3d%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.2', java.version: '1.8.0_171'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device.
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:826:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:447:37)
 
-runScenario(TestRunner)  Time elapsed: 39.946 s  <<< FAILURE!
-org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: btnSignIn})
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@2e16b08d (tried for 1 second(s) with 500 milliseconds interval)
-Caused by: org.openqa.selenium.NoSuchElementException: 
-Cannot locate an element using By.chained({By.id: btnSignIn})
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+tearDownClass(ParallelTestRunner)  Time elapsed: 0.19 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+Connection refused (Connection refused)
 Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
-System info: host: 'MBA0087.local', ip: 'fe80:0:0:0:8f9:749d:f3cf:ebb3%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14', java.version: '1.8.0_181'
+System info: host: 'MBA0163.local', ip: 'fe80:0:0:0:c44:7e9f:fdec:1b3d%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.2', java.version: '1.8.0_171'
 Driver info: driver.version: AndroidDriver
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
 
-runScenario(TestRunner)  Time elapsed: 28.838 s  <<< FAILURE!
-org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: By.chained({By.id: btnSignIn})
-Caused by: org.openqa.selenium.TimeoutException: Expected condition failed: waiting for io.appium.java_client.pagefactory.AppiumElementLocator$WaitingFunction@16fe9c29 (tried for 1 second(s) with 500 milliseconds interval)
-Caused by: org.openqa.selenium.NoSuchElementException: 
-Cannot locate an element using By.chained({By.id: btnSignIn})
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+setUpClass(ParallelTestRunner3)  Time elapsed: 21.718 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+It is impossible to create a new session because 'createSession' which takes HttpClient, InputStream and long was not found or it is not accessible
 Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
-System info: host: 'MBA0087.local', ip: 'fe80:0:0:0:8f9:749d:f3cf:ebb3%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.14', java.version: '1.8.0_181'
+System info: host: 'MBA0163.local', ip: 'fe80:0:0:0:c44:7e9f:fdec:1b3d%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.2', java.version: '1.8.0_171'
 Driver info: driver.version: AndroidDriver
+Caused by: java.lang.reflect.InvocationTargetException
+Caused by: org.openqa.selenium.WebDriverException: 
+An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device.
+Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
+System info: host: 'MBA0163.local', ip: 'fe80:0:0:0:c44:7e9f:fdec:1b3d%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.2', java.version: '1.8.0_171'
+Driver info: driver.version: AndroidDriver
+remote stacktrace: UnknownError: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device.
+    at getResponseForW3CError (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/errors.js:826:9)
+    at asyncHandler (/usr/local/lib/node_modules/appium/node_modules/appium-base-driver/lib/protocol/protocol.js:447:37)
+
+tearDownClass(ParallelTestRunner3)  Time elapsed: 0.024 s  <<< FAILURE!
+org.openqa.selenium.WebDriverException: 
+Connection refused (Connection refused)
+Build info: version: '3.12.0', revision: '7c6e0b3', time: '2018-05-08T14:04:26.12Z'
+System info: host: 'MBA0163.local', ip: 'fe80:0:0:0:c44:7e9f:fdec:1b3d%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.13.2', java.version: '1.8.0_171'
+Driver info: driver.version: AndroidDriver
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
 

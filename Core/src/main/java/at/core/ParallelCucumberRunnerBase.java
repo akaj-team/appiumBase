@@ -20,7 +20,7 @@ public class ParallelCucumberRunnerBase extends CustomAbstractTestNGCucumberTest
     @BeforeClass(alwaysRun = true)
     public void setUpClass(final ITestContext context) throws Exception {
         super.setUpClass(context);
-        AppiumController.instance.start(context.getCurrentXmlTest());
+        AppiumController.instance.start(context.getCurrentXmlTest(), false);
     }
 
     @AfterClass(alwaysRun = true)

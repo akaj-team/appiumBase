@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Default Test Suite]">
-  <parameter name="app" value="jp.co.trygroup.tryit.student.ui.staging_v3.1.19.apk"/>
-  <parameter name="server" value="http://127.0.0.1:4723/wd/hub"/>
-  <parameter name="platformVersion" value="7.0"/>
+<suite thread-count="2" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Main Suite]" parallel="tests">
+  <parameter name="appPackage" value="jp.co.trygroup.tryit.student.ui.staging"/>
+  <parameter name="appActivity" value="jp.co.trygroup.tryit.student.ui.initial.SplashActivity_"/>
+  <parameter name="app" value="jp.co.trygroup.tryit.student.ui.staging_v3.1.22.apk"/>
+  <parameter name="server" value="http://172.16.110.169:4444/wd/hub"/>
+  <parameter name="platformVersion" value="8.0.0"/>
   <parameter name="platformName" value="android"/>
-  <parameter name="deviceName" value="Nexus 5"/>
-  <test name="Android Test(failed)">
-    <parameter name="app" value="jp.co.trygroup.tryit.student.ui.staging_v3.1.19.apk"/>
-    <parameter name="platformVersion" value="7.0"/>
+  <parameter name="deviceName" value="Galaxy S8"/>
+  <test name="Android Test(failed)" parallel="tests">
+    <parameter name="appPackage" value="jp.co.trygroup.tryit.student.ui.staging"/>
+    <parameter name="appActivity" value="jp.co.trygroup.tryit.student.ui.initial.SplashActivity_"/>
+    <parameter name="app" value="jp.co.trygroup.tryit.student.ui.staging_v3.1.22.apk"/>
+    <parameter name="platformVersion" value="8.0.0"/>
     <parameter name="platformName" value="android"/>
-    <parameter name="deviceName" value="Nexus 5"/>
+    <parameter name="deviceName" value="Galaxy S8"/>
     <classes>
-      <class name="TestRunner">
+      <class name="ParallelTestRunner">
         <methods>
-          <include name="setUpClass"/>
-          <include name="runScenario" invocation-numbers="0 1 2"/>
-          <include name="setUpClass"/>
           <include name="tearDownClass"/>
+          <include name="runScenario"/>
+          <include name="setUpClass"/>
         </methods>
-      </class> <!-- TestRunner -->
+      </class> <!-- ParallelTestRunner -->
+      <class name="ParallelTestRunner3">
+        <methods>
+          <include name="tearDownClass"/>
+          <include name="runScenario"/>
+          <include name="setUpClass"/>
+        </methods>
+      </class> <!-- ParallelTestRunner3 -->
     </classes>
   </test> <!-- Android Test(failed) -->
-</suite> <!-- Failed suite [Default Test Suite] -->
+</suite> <!-- Failed suite [Main Suite] -->
