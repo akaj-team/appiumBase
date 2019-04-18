@@ -21,15 +21,9 @@ pipeline {
             options { skipDefaultCheckout() }
             steps {
                 unstash('data')
-//                workspace = "${env.WORKSPACE}"
-//                echo "${workspace}"
                 script {
                     MAC_WORK_SPACE = pwd()
-                    echo "${MAC_WORK_SPACE}"
-                    def a = pwd()
-                    echo "${a}xxxx"
                 }
-                echo "${MAC_WORK_SPACE}"
             }
         }
 
@@ -43,10 +37,6 @@ pipeline {
                             }
 
                             steps {
-                                script {
-                                    def b = pwd()
-                                    echo "${b}bbbbb"
-                                }
                                 sh "mvn clean test -DsuiteXmlFile=CheckSuite -Dapp=${MAC_WORK_SPACE}/App/appfile/Android/jp.co.trygroup.tryit.student.ui.staging_v3.1.20.apk"
                             }
                             post {
