@@ -18,8 +18,10 @@ pipeline {
             agent {
                 label 'macos'
             }
-            unstash('android-apk')
-            unstash('ios-ipa')
+            steps {
+                unstash('android-apk')
+                unstash('ios-ipa')
+            }
         }
 
         stage('Run Tests') {
