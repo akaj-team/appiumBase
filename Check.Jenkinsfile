@@ -25,7 +25,8 @@ pipeline {
 //                echo "${workspace}"
                 script {
                     $MAC_WORK_SPACE = "aaaa"
-                    $MAC_WORK_SPACE = "${env.WORKSPACE}"
+                    def a = pwd()
+                    echo "${a}"
                 }
                 echo "${MAC_WORK_SPACE}"
             }
@@ -41,6 +42,7 @@ pipeline {
                             }
 
                             steps {
+                                echo "${a}"
                                 sh "mvn clean test -DsuiteXmlFile=CheckSuite -Dapp=${MAC_WORK_SPACE}/App/appfile/Android/jp.co.trygroup.tryit.student.ui.staging_v3.1.20.apk"
                             }
                             post {
