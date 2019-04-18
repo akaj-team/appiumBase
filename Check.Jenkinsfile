@@ -24,7 +24,8 @@ pipeline {
 //                workspace = "${env.WORKSPACE}"
 //                echo "${workspace}"
                 script {
-                    $MAC_WORK_SPACE = pwd()
+                    $MAC_WORK_SPACE = "aaaa"
+                    $MAC_WORK_SPACE = "${env.WORKSPACE}"
                 }
                 echo "${MAC_WORK_SPACE}"
             }
