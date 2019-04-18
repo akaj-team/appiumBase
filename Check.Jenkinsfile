@@ -21,7 +21,7 @@ pipeline {
             options { skipDefaultCheckout() }
             steps {
                 unstash('data')
-                workspace = pwd()
+                workspace = "${env.WORKSPACE}"
                 echo "${workspace}"
             }
         }
