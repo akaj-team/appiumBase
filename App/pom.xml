@@ -87,7 +87,7 @@
                                 <!--<suiteXmlFile>src/test/resources/${suiteXmlFile}.xml</suiteXmlFile>-->
                             <!--</suiteXmlFiles>-->
                             <suiteXmlFiles>
-                                <suiteXmlFile>src/test/resources/${suiteXmlFile}</suiteXmlFile>
+                                <suiteXmlFile>src/test/resources/${suiteXmlFile}.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                         <executions>

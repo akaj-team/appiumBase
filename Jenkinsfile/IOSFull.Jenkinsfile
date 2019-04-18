@@ -8,16 +8,16 @@ pipeline {
                 label 'master'
             }
             steps {
-                sh 'mvn clean test -DsuiteXmlFile=AndroidSuite.xml'
+                sh 'mvn clean test -DsuiteXmlFile=IOSSuite'
             }
             post {
                 always {
                     archiveArtifacts artifacts: "${APP_MODULE}/target/cucumber-reports/,${APP_MODULE}/target/screenshots/,${APP_MODULE}/target/GitHubReport.json"
                     junit "${APP_MODULE}/target/cucumber-reports/*.xml"
                     script {
-                        def androidPropertyFile = "${APP_MODULE}/target/classifications/Android_Test.properties"
-                        if (fileExists(androidPropertyFile)) {
-                            def props = readProperties interpolate: true, file: androidPropertyFile
+                        def iosPropertyFile = "${APP_MODULE}/target/classifications/IOS_Test.properties"
+                        if (fileExists(iosPropertyFile)) {
+                            def props = readProperties interpolate: true, file: iosPropertyFile
                             cucumber fileIncludePattern: "${APP_MODULE}/target/cucumber-reports/*.json",
                                     sortingMethod: 'ALPHABETICAL',
                                     classifications: [

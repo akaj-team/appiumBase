@@ -20,7 +20,7 @@ pipeline {
                                 label 'master'
                             }
                             steps {
-                                sh 'mvn clean test -DsuiteXmlFile=CheckSuite.xml'
+                                sh 'mvn clean test -DsuiteXmlFile=CheckSuite'
                             }
                             post {
                                 always {
