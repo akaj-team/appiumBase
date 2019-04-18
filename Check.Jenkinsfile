@@ -23,7 +23,9 @@ pipeline {
                 unstash('data')
 //                workspace = "${env.WORKSPACE}"
 //                echo "${workspace}"
-                $MAC_WORK_SPACE = "aaa"
+                script {
+                    $MAC_WORK_SPACE = "aaa"
+                }
             }
         }
 
