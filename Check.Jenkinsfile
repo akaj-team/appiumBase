@@ -26,6 +26,7 @@ pipeline {
                 script {
                     $MAC_WORK_SPACE = pwd()
                 }
+                echo "${MAC_WORK_SPACE}"
             }
         }
 
