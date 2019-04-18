@@ -97,6 +97,12 @@ pipeline {
                                 always {
                                     sh "bundle exec danger --danger_id=cucumber_report --dangerfile=CucumberReport.Dangerfile"
                                 }
+                                success{
+                                    echo 'success'
+                                }
+                                failure{
+                                    echo 'failed'
+                                }
                             }
                         }
                     }
