@@ -50,11 +50,11 @@ public class AppiumController {
 
             File appDir = new File(classpathRoot, "/App/appfile/Android");
             File appPath = new File(appDir, xmlTest.getParameter(MobileCapabilityType.APP));
-//            if (isDefault) {
-//                capabilities.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
-//            } else {
+            if (isDefault) {
+                capabilities.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
+            } else {
                 capabilities.setCapability(MobileCapabilityType.APP, xmlTest.getParameter(MobileCapabilityType.APP));
-          //  }
+            }
             driver = new AndroidDriver(new URL(xmlTest.getParameter("server")), capabilities);
         } else if (xmlTest.getParameter(MobileCapabilityType.PLATFORM_NAME).equalsIgnoreCase("ios")) {
             capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
@@ -91,13 +91,13 @@ public class AppiumController {
     private Map<String, String> defaultAndroidParameters() {
         Map<String, String> parameters = new HashMap<>();
         parameters.put(MobileCapabilityType.PLATFORM_NAME, "android");
-        parameters.put(MobileCapabilityType.DEVICE_NAME, "Pixel XL API 28");
-        parameters.put(MobileCapabilityType.PLATFORM_VERSION, "9");
+        parameters.put(MobileCapabilityType.DEVICE_NAME, "Pixel XL API P");
+        parameters.put(MobileCapabilityType.PLATFORM_VERSION, "P");
         parameters.put(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         parameters.put(AndroidMobileCapabilityType.APP_PACKAGE, "jp.co.trygroup.tryit.student.ui.staging");
         parameters.put(AndroidMobileCapabilityType.APP_ACTIVITY, "jp.co.trygroup.tryit.student.ui.initial.SplashActivity_");
         parameters.put(MobileCapabilityType.APP, "jp.co.trygroup.tryit.student.ui.staging_v3.1.22.apk");
-        parameters.put("server", "http://172.16.110.169:4444/wd/hub");
+        parameters.put("server", "http://127.0.0.1:4723/wd/hub");
         return parameters;
     }
 
