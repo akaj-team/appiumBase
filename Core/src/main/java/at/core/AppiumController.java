@@ -47,8 +47,6 @@ public class AppiumController {
             capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, xmlTest.getParameter(AndroidMobileCapabilityType.APP_PACKAGE));
             capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, xmlTest.getParameter(AndroidMobileCapabilityType.APP_ACTIVITY));
 
-//            File appDir = new File(classpathRoot, "/App/appfile/Android");
-//            File appPath = new File(appDir, System.getProperty("app"));
             capabilities.setCapability(MobileCapabilityType.APP, System.getProperty("app"));
             driver = new AndroidDriver(new URL(xmlTest.getParameter("server")), capabilities);
         } else if (xmlTest.getParameter(MobileCapabilityType.PLATFORM_NAME).equalsIgnoreCase("ios")) {
@@ -57,7 +55,7 @@ public class AppiumController {
             capabilities.setCapability("useJSONSource", true);
 
             File appDir = new File(classpathRoot, "/App/appfile/iOS/");
-            File appPath = new File(appDir, xmlTest.getParameter(MobileCapabilityType.APP));
+            File appPath = new File(appDir, System.getProperty("app"));
             capabilities.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
             driver = new IOSDriver<>(new URL(xmlTest.getParameter("server")), capabilities);
         }
