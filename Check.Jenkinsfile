@@ -1,5 +1,5 @@
 def APP_MODULE = "App"
-def MAC_WORK_SPACE = ""
+def MAC_WORK_SPACE
 pipeline {
     agent none
 
@@ -24,9 +24,8 @@ pipeline {
 //                workspace = "${env.WORKSPACE}"
 //                echo "${workspace}"
                 script {
-                    $MAC_WORK_SPACE = "aaaa"
-                    def a = pwd()
-                    echo "${a}"
+                    $MAC_WORK_SPACE = pwd()
+                    echo "${MAC_WORK_SPACE}"
                 }
                 echo "${MAC_WORK_SPACE}"
             }
