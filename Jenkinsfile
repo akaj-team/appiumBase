@@ -94,7 +94,7 @@ pipeline {
                                 sh "bundle install --path /vendor/bundle"
                             }
                             post {
-                                success {
+                                always {
                                     sh "bundle exec danger --danger_id=cucumber_report --dangerfile=CucumberReport.Dangerfile"
                                 }
                             }
