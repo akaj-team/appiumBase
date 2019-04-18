@@ -17,7 +17,6 @@
         <!--Plugin Versions-->
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
         <maven-failsafe-plugin.version>2.22.0</maven-failsafe-plugin.version>
-        <suite>DefaultSuite</suite>
     </properties>
 
     <dependencies>
@@ -84,8 +83,11 @@
                         <configuration>
                             <testFailureIgnore>true</testFailureIgnore>
                             <reuseForks>true</reuseForks>
+                            <!--<suiteXmlFiles>-->
+                                <!--<suiteXmlFile>src/test/resources/${suiteXmlFile}.xml</suiteXmlFile>-->
+                            <!--</suiteXmlFiles>-->
                             <suiteXmlFiles>
-                                <suiteXmlFile>src/test/resources/${suite}.xml</suiteXmlFile>
+                                <suiteXmlFile>src/test/resources/${suiteXmlFile}.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                         <executions>

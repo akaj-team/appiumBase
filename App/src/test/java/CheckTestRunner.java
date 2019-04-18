@@ -4,7 +4,7 @@ import cucumber.api.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"at_asiantech/stepdefs"},
-        tags = {"not @Ignore"},
+        tags = {"not @Ignore", "@Test"},
         plugin = {
                 "pretty",
                 "junit:target/cucumber-reports/junit-report.xml",
@@ -12,6 +12,5 @@ import cucumber.api.CucumberOptions;
                 "json:target/cucumber-reports/CucumberTestReport.json",
                 "rerun:target/cucumber-reports/rerun.txt"
         })
-class TestRunner extends CucumberRunnerBase {
-
+class CheckTestRunner extends CucumberRunnerBase {
 }
