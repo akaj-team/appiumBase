@@ -9,8 +9,7 @@ pipeline {
             }
             steps {
                 stash includes: '**', name: 'source-code', useDefaultExcludes: false
-                stash includes: "${APP_MODULE}/appfile/Android/*.apk", name: 'android-apk'
-                stash includes: "${APP_MODULE}/appfile/iOS/*.ipa", name: 'ios-ipa'
+                stash includes: "${APP_MODULE}/appfile/", name: 'data', useDefaultExcludes: false
             }
         }
 
@@ -18,9 +17,9 @@ pipeline {
             agent {
                 label 'macos'
             }
+            options { skipDefaultCheckout() }
             steps {
-                unstash('android-apk')
-                unstash('ios-ipa')
+                unstash('data')
             }
         }
 
