@@ -21,9 +21,9 @@ pipeline {
             options { skipDefaultCheckout() }
             steps {
                 unstash('data')
+                workspace = pwd()
+                echo "${workspace}"
             }
-            workspace = pwd()
-            echo "${workspace}"
         }
 
         stage('Run Tests') {
