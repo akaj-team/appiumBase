@@ -32,11 +32,10 @@ public class AppiumController {
         return driverFactoryThread.get();
     }
 
-    public synchronized void start(XmlTest xmlTest, boolean isDefault) throws MalformedURLException {
+    public synchronized void start(XmlTest xmlTest) throws MalformedURLException {
         AppiumDriver driver = null;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-
         File classpathRoot = new File(System.getProperty("user.dir").replace("/App", ""));
 
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, xmlTest.getParameter(MobileCapabilityType.DEVICE_NAME));
@@ -50,11 +49,8 @@ public class AppiumController {
 
             File appDir = new File(classpathRoot, "/App/appfile/Android");
             File appPath = new File(appDir, xmlTest.getParameter(MobileCapabilityType.APP));
-            if (isDefault) {
-                capabilities.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
-            } else {
-                capabilities.setCapability(MobileCapabilityType.APP, xmlTest.getParameter(MobileCapabilityType.APP));
-            }
+            //    capabilities.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
+            capabilities.setCapability(MobileCapabilityType.APP, xmlTest.getParameter(MobileCapabilityType.APP));
             driver = new AndroidDriver(new URL(xmlTest.getParameter("server")), capabilities);
         } else if (xmlTest.getParameter(MobileCapabilityType.PLATFORM_NAME).equalsIgnoreCase("ios")) {
             capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
@@ -85,18 +81,18 @@ public class AppiumController {
     private synchronized void startDefaultServer() throws MalformedURLException {
         XmlTest xmlTest = new XmlTest();
         xmlTest.setParameters(defaultAndroidParameters());
-        start(xmlTest, true);
+        start(xmlTest);
     }
 
     private Map<String, String> defaultAndroidParameters() {
         Map<String, String> parameters = new HashMap<>();
         parameters.put(MobileCapabilityType.PLATFORM_NAME, "android");
-        parameters.put(MobileCapabilityType.DEVICE_NAME, "Pixel XL API P");
-        parameters.put(MobileCapabilityType.PLATFORM_VERSION, "P");
+        parameters.put(MobileCapabilityType.DEVICE_NAME, "Nexus 5X");
+        parameters.put(MobileCapabilityType.PLATFORM_VERSION, "7.0");
         parameters.put(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         parameters.put(AndroidMobileCapabilityType.APP_PACKAGE, "jp.co.trygroup.tryit.student.ui.staging");
         parameters.put(AndroidMobileCapabilityType.APP_ACTIVITY, "jp.co.trygroup.tryit.student.ui.initial.SplashActivity_");
-        parameters.put(MobileCapabilityType.APP, "jp.co.trygroup.tryit.student.ui.staging_v3.1.22.apk");
+        parameters.put(MobileCapabilityType.APP, "jp.co.trygroup.tryit.student.ui.staging_v3.1.19.apk");
         parameters.put("server", "http://127.0.0.1:4723/wd/hub");
         return parameters;
     }
