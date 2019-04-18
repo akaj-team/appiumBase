@@ -6,6 +6,7 @@ Feature: Test user login flow
     Background:
         Given Open screen ログイン Login screen
 
+    @Test
     Scenario Outline: Login button is not displayed when no input username or password
         When I input username with "<userName>"
         And I input password with "<passWord>"

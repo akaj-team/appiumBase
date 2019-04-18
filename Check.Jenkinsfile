@@ -20,7 +20,7 @@ pipeline {
                                 label 'master'
                             }
                             steps {
-                                sh 'mvn clean test'
+                                sh 'mvn clean test -DsuiteXmlFile=CheckSuite.xml'
                             }
                             post {
                                 always {
@@ -28,14 +28,8 @@ pipeline {
                                     junit "${APP_MODULE}/target/cucumber-reports/*.xml"
                                     script {
                                         def androidPropertyFile = "${APP_MODULE}/target/classifications/Android_Test.properties"
-                                        def iosPropertyFile = "${APP_MODULE}/target/classifications/IOS_Test.properties"
-                                        def props = ""
                                         if (fileExists(androidPropertyFile)) {
-                                            props = readProperties interpolate: true, file: androidPropertyFile
-                                        } else if (fileExists(iosPropertyFile)) {
-                                            props = readProperties interpolate: true, file: iosPropertyFile
-                                        }
-                                        if (props != "") {
+                                            def props = readProperties interpolate: true, file: androidPropertyFile
                                             cucumber fileIncludePattern: "${APP_MODULE}/target/cucumber-reports/*.json",
                                                     sortingMethod: 'ALPHABETICAL',
                                                     classifications: [
