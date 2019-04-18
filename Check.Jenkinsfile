@@ -9,8 +9,19 @@ pipeline {
             }
             steps {
                 stash includes: '**', name: 'source-code', useDefaultExcludes: false
+                stash includes: "${APP_MODULE}/appfile/Android/*.apk", name: 'android-apk'
+                stash includes: "${APP_MODULE}/appfile/iOS/*.ipa", name: 'ios-ipa'
             }
         }
+
+        stage("Share data") {
+            agent {
+                label 'macos'
+            }
+            unstash('android-apk')
+            unstash('ios-ipa')
+        }
+
         stage('Run Tests') {
             parallel {
                 stage("Build") {
@@ -19,6 +30,7 @@ pipeline {
                             agent {
                                 label 'master'
                             }
+
                             steps {
                                 sh 'mvn clean test -DsuiteXmlFile=CheckSuite'
                             }
