@@ -1,5 +1,5 @@
 def APP_MODULE = "App"
-def WORK_SPACE_MAC
+def MAC_WORK_SPACE = ""
 pipeline {
     agent none
 
@@ -23,7 +23,7 @@ pipeline {
                 unstash('data')
 //                workspace = "${env.WORKSPACE}"
 //                echo "${workspace}"
-                WORK_SPACE_MAC = pwd()
+                $MAC_WORK_SPACE = pwd()
             }
         }
 
@@ -37,7 +37,7 @@ pipeline {
                             }
 
                             steps {
-                                sh "mvn clean test -DsuiteXmlFile=CheckSuite -Dapp=${WORK_SPACE_MAC}/App/appfile/Android/jp.co.trygroup.tryit.student.ui.staging_v3.1.20.apk"
+                                sh "mvn clean test -DsuiteXmlFile=CheckSuite -Dapp=${MAC_WORK_SPACE}/App/appfile/Android/jp.co.trygroup.tryit.student.ui.staging_v3.1.20.apk"
                             }
                             post {
                                 always {
