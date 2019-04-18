@@ -3,6 +3,7 @@ Feature: Test user login flow
   Login success with valid account
   Login fail with invalid account
 
+  @Login
   Background:
     Given Open screen ログイン Login screen
 
