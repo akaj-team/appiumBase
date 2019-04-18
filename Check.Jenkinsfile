@@ -23,7 +23,7 @@ pipeline {
                 unstash('data')
 //                workspace = "${env.WORKSPACE}"
 //                echo "${workspace}"
-                $MAC_WORK_SPACE = pwd()
+                $MAC_WORK_SPACE = "aaa"
             }
         }
 
