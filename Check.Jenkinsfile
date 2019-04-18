@@ -24,8 +24,8 @@ pipeline {
 //                workspace = "${env.WORKSPACE}"
 //                echo "${workspace}"
                 script {
-                    $MAC_WORK_SPACE = pwd()
-                    $MAC_WORK_SPACE = env.WORKSPACE
+                    MAC_WORK_SPACE = pwd()
+                    echo "${MAC_WORK_SPACE}"
                     def a = pwd()
                     echo "${a}xxxx"
                 }
