@@ -19,9 +19,7 @@ pipeline {
             }
             options { skipDefaultCheckout() }
             steps {
-                dir('/apk') {
-                    unstash('data')
-                }
+                unstash('data')
                 echo "${env.CHANGE_ID}"
             }
         }
