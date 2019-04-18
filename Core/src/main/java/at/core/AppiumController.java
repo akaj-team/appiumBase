@@ -47,9 +47,9 @@ public class AppiumController {
             capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, xmlTest.getParameter(AndroidMobileCapabilityType.APP_PACKAGE));
             capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, xmlTest.getParameter(AndroidMobileCapabilityType.APP_ACTIVITY));
 
-//            File appDir = new File(classpathRoot, "//App/appfile/Android/");
-//            File appPath = new File(appDir, xmlTest.getParameter(MobileCapabilityType.APP));
-            capabilities.setCapability(MobileCapabilityType.APP, "//App/appfile/Android/" + xmlTest.getParameter(MobileCapabilityType.APP));
+//            File appDir = new File(classpathRoot, "/App/appfile/Android");
+//            File appPath = new File(appDir, System.getProperty("app"));
+            capabilities.setCapability(MobileCapabilityType.APP, System.getProperty("app"));
             driver = new AndroidDriver(new URL(xmlTest.getParameter("server")), capabilities);
         } else if (xmlTest.getParameter(MobileCapabilityType.PLATFORM_NAME).equalsIgnoreCase("ios")) {
             capabilities.setCapability(MobileCapabilityType.NO_RESET, true);

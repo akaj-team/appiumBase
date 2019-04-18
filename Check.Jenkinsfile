@@ -1,4 +1,5 @@
 def APP_MODULE = "App"
+def workspace
 pipeline {
     agent none
 
@@ -19,10 +20,10 @@ pipeline {
             }
             options { skipDefaultCheckout() }
             steps {
-                dir("apk") {
-                    unstash('data')
-                }
+                unstash('data')
             }
+            workspace = pwd()
+            echo "${workspace}"
         }
 
         stage('Run Tests') {
@@ -35,7 +36,7 @@ pipeline {
                             }
 
                             steps {
-                                sh 'mvn clean test -DsuiteXmlFile=CheckSuite'
+                                sh "mvn clean test -DsuiteXmlFile=CheckSuite -Dapp=${workspace}/jenkins/workspace/appiumBase_PR${env.CHANGE_ID}/App/appfile/Android/jp.co.trygroup.tryit.student.ui.staging_v3.1.20.apk"
                             }
                             post {
                                 always {
