@@ -32,16 +32,16 @@ pipeline {
             }
 
             steps {
-                sh "mvn clean test -DsuiteXmlFile=IOSSuite -Dapp=${MAC_WORK_SPACE}/App/appfile/IOS/tryit_stg.ipa"
+                sh "mvn clean test -DsuiteXmlFile=IosSuite -DworkSpace=${MAC_WORK_SPACE}"
             }
             post {
                 always {
                     archiveArtifacts artifacts: "${APP_MODULE}/target/cucumber-reports/,${APP_MODULE}/target/screenshots/,${APP_MODULE}/target/GitHubReport.json"
                     junit "${APP_MODULE}/target/cucumber-reports/*.xml"
                     script {
-                        def androidPropertyFile = "${APP_MODULE}/target/classifications/Android_Test.properties"
-                        if (fileExists(androidPropertyFile)) {
-                            def props = readProperties interpolate: true, file: androidPropertyFile
+                        def iosPropertyFile = "${APP_MODULE}/target/classifications/Ios_Test.properties"
+                        if (fileExists(iosPropertyFile)) {
+                            def props = readProperties interpolate: true, file: iosPropertyFile
                             cucumber fileIncludePattern: "${APP_MODULE}/target/cucumber-reports/*.json",
                                     sortingMethod: 'ALPHABETICAL',
                                     classifications: [

@@ -32,7 +32,7 @@ pipeline {
             }
 
             steps {
-                sh "mvn clean test -DsuiteXmlFile=AndroiSuite -Dapp=${MAC_WORK_SPACE}/App/appfile/Android/jp.co.trygroup.tryit.student.ui.staging_v3.1.20.apk"
+                sh "mvn clean test -DsuiteXmlFile=AndroiSuite -DworkSpace=${MAC_WORK_SPACE}"
             }
             post {
                 always {
