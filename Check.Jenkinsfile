@@ -1,4 +1,5 @@
 def APP_MODULE = "App"
+def MAC_WORK_SPACE
 pipeline {
     agent none
 
@@ -9,8 +10,23 @@ pipeline {
             }
             steps {
                 stash includes: '**', name: 'source-code', useDefaultExcludes: false
+                stash includes: "${APP_MODULE}/appfile/", name: 'data', useDefaultExcludes: false
             }
         }
+
+        stage("Share data") {
+            agent {
+                label 'macos'
+            }
+            options { skipDefaultCheckout() }
+            steps {
+                unstash('data')
+                script {
+                    MAC_WORK_SPACE = pwd()
+                }
+            }
+        }
+
         stage('Run Tests') {
             parallel {
                 stage("Build") {
@@ -19,8 +35,9 @@ pipeline {
                             agent {
                                 label 'master'
                             }
+
                             steps {
-                                sh 'mvn clean test -DsuiteXmlFile=CheckSuite'
+                                sh "mvn clean test -DsuiteXmlFile=CheckSuite -Dapp=${MAC_WORK_SPACE}/App/appfile/Android/jp.co.trygroup.tryit.student.ui.staging_v3.1.20.apk"
                             }
                             post {
                                 always {

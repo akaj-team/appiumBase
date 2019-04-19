@@ -5,7 +5,6 @@
         <parameter name="platformName" value="ios"/>
         <parameter name="deviceName" value="iPhone XS Max"/>
         <parameter name="platformVersion" value="12.0"/>
-        <parameter name="app" value="tryit_stg.ipa"/>
         <classes>
             <class name="TestRunner"/>
         </classes>
