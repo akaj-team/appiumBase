@@ -21,6 +21,11 @@ public class AppiumController {
     public static AppiumController instance = new AppiumController();
     private ThreadLocal<AppiumDriver> driverFactoryThread = new ThreadLocal<>();
 
+    /**
+     * Get Appium deriver #synchronized
+     *
+     * @return appium driver
+     */
     public synchronized AppiumDriver getDriver() {
         if (driverFactoryThread.get() == null) {
             try {
@@ -32,6 +37,12 @@ public class AppiumController {
         return driverFactoryThread.get();
     }
 
+    /**
+     * Start test session
+     *
+     * @param xmlTest
+     * @throws MalformedURLException
+     */
     public synchronized void start(XmlTest xmlTest) throws MalformedURLException {
         AppiumDriver driver = null;
 
@@ -75,6 +86,15 @@ public class AppiumController {
         driverFactoryThread.set(driver);
     }
 
+    /**
+     * Stop test session
+     */
+    public void stop() {
+        if (getDriver() != null) {
+            getDriver().quit();
+        }
+    }
+
     private synchronized void startDefaultServer() throws MalformedURLException {
         XmlTest xmlTest = new XmlTest();
         xmlTest.setParameters(defaultAndroidParameters());
@@ -103,11 +123,5 @@ public class AppiumController {
         parameters.put(MobileCapabilityType.APP, "tryit_stg.ipa");
         parameters.put("server", "http://127.0.0.1:4723/wd/hub");
         return parameters;
-    }
-
-    public void stop() {
-        if (getDriver() != null) {
-            getDriver().quit();
-        }
     }
 }

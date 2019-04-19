@@ -21,16 +21,35 @@ public abstract class BasePage {
         this.driver = driver;
     }
 
+    /**
+     * Get Mobile driver
+     *
+     * @return mobile driver
+     */
     public MobileDriver getDrive() {
         return driver;
     }
 
+    /**
+     * Wait for element dislayed with timeout
+     *
+     * @param element
+     * @param timeOutInSecond
+     */
     public void waitForElementDisplay(MobileElement element, int timeOutInSecond) {
         isElementDisplayed(element, timeOutInSecond);
     }
 
+    /**
+     * Check page is displayed
+     *
+     * @return boolean
+     */
     public abstract boolean isPageDisplayed();
 
+    /**
+     * Navigate to page
+     */
     public abstract void navigateTo();
 
     private boolean isElementDisplayed(WebElement element, int timeOutInSecond) {
