@@ -45,26 +45,26 @@ pipeline {
                             cucumber fileIncludePattern: "${APP_MODULE}/target/cucumber-reports/*.json",
                                     sortingMethod: 'ALPHABETICAL',
                                     classifications: [
+                                            ['key'  : 'Device Name',
+                                             'value': props.deviceName
+                                            ],
+                                            ['key'  : 'Platform Name',
+                                             'value': props.platformName
+                                            ],
+                                            ['key'  : 'Platform Version',
+                                             'value': props.platformVersion
+                                            ],
+                                            ['key'  : 'Server',
+                                             'value': props.server
+                                            ],
+                                            ['key'  : 'App',
+                                             'value': props.app
+                                            ],
                                             ['key'  : 'App Package',
                                              'value': props.appPackage
                                             ],
                                             ['key'  : 'App Activity',
                                              'value': props.appActivity
-                                            ],
-                                            ['key'  : 'App',
-                                             'value': props.app
-                                            ],
-                                            ['key'  : 'Server',
-                                             'value': props.server
-                                            ],
-                                            ['key'  : 'Platform Version',
-                                             'value': props.platformVersion
-                                            ],
-                                            ['key'  : 'Platform Name',
-                                             'value': props.platformName
-                                            ],
-                                            ['key'  : 'Device Name',
-                                             'value': props.deviceName
                                             ]
                                     ]
                         }
