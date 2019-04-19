@@ -9,7 +9,6 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.xml.XmlTest;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
@@ -45,9 +44,14 @@ public class AppiumController {
      */
     public synchronized void start(XmlTest xmlTest) throws MalformedURLException {
         AppiumDriver driver = null;
+        String workSpace;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        File classpathRoot = new File(System.getProperty("user.dir").replace("/App", ""));
+        if (System.getProperty("workSpace") != null) {
+            workSpace = System.getProperty("workSpace");
+        } else {
+            workSpace = System.getProperty("user.dir").replace("/App", "");
+        }
 
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, xmlTest.getParameter(MobileCapabilityType.DEVICE_NAME));
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, xmlTest.getParameter(MobileCapabilityType.PLATFORM_VERSION));
@@ -58,16 +62,14 @@ public class AppiumController {
             capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, xmlTest.getParameter(AndroidMobileCapabilityType.APP_PACKAGE));
             capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, xmlTest.getParameter(AndroidMobileCapabilityType.APP_ACTIVITY));
 
-            capabilities.setCapability(MobileCapabilityType.APP, System.getProperty("app"));
+            capabilities.setCapability(MobileCapabilityType.APP, workSpace + "/App/appfile/Android/" + xmlTest.getParameter(MobileCapabilityType.APP));
             driver = new AndroidDriver(new URL(xmlTest.getParameter("server")), capabilities);
         } else if (xmlTest.getParameter(MobileCapabilityType.PLATFORM_NAME).equalsIgnoreCase("ios")) {
             capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
             capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
             capabilities.setCapability("useJSONSource", true);
 
-            File appDir = new File(classpathRoot, "/App/appfile/iOS/");
-            File appPath = new File(appDir, System.getProperty("app"));
-            capabilities.setCapability(MobileCapabilityType.APP, appPath.getAbsolutePath());
+            capabilities.setCapability(MobileCapabilityType.APP, workSpace + "/App/appfile/IOS/" + xmlTest.getParameter(MobileCapabilityType.APP));
             driver = new IOSDriver<>(new URL(xmlTest.getParameter("server")), capabilities);
         }
 

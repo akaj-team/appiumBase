@@ -37,7 +37,7 @@ pipeline {
                             }
 
                             steps {
-                                sh "mvn clean test -DsuiteXmlFile=CheckSuite -Dapp=${MAC_WORK_SPACE}/App/appfile/Android/jp.co.trygroup.tryit.student.ui.staging_v3.1.20.apk"
+                                sh "mvn clean test -DsuiteXmlFile=CheckSuite -DworkSpace=${MAC_WORK_SPACE}"
                             }
                             post {
                                 always {
@@ -50,26 +50,26 @@ pipeline {
                                             cucumber fileIncludePattern: "${APP_MODULE}/target/cucumber-reports/*.json",
                                                     sortingMethod: 'ALPHABETICAL',
                                                     classifications: [
+                                                            ['key'  : 'Device Name',
+                                                             'value': props.deviceName
+                                                            ],
+                                                            ['key'  : 'Platform Name',
+                                                             'value': props.platformName
+                                                            ],
+                                                            ['key'  : 'Platform Version',
+                                                             'value': props.platformVersion
+                                                            ],
+                                                            ['key'  : 'Server',
+                                                             'value': props.server
+                                                            ],
+                                                            ['key'  : 'App',
+                                                             'value': props.app
+                                                            ],
                                                             ['key'  : 'App Package',
                                                              'value': props.appPackage
                                                             ],
                                                             ['key'  : 'App Activity',
                                                              'value': props.appActivity
-                                                            ],
-                                                            ['key'  : 'App',
-                                                             'value': props.app
-                                                            ],
-                                                            ['key'  : 'Server',
-                                                             'value': props.server
-                                                            ],
-                                                            ['key'  : 'Platform Version',
-                                                             'value': props.platformVersion
-                                                            ],
-                                                            ['key'  : 'Platform Name',
-                                                             'value': props.platformName
-                                                            ],
-                                                            ['key'  : 'Device Name',
-                                                             'value': props.deviceName
                                                             ]
                                                     ]
                                         }

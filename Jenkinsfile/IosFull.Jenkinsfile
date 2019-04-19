@@ -32,39 +32,39 @@ pipeline {
             }
 
             steps {
-                sh "mvn clean test -DsuiteXmlFile=AndroiSuite -Dapp=${MAC_WORK_SPACE}/App/appfile/Android/jp.co.trygroup.tryit.student.ui.staging_v3.1.20.apk"
+                sh "mvn clean test -DsuiteXmlFile=IosSuite -DworkSpace=${MAC_WORK_SPACE}"
             }
             post {
                 always {
                     archiveArtifacts artifacts: "${APP_MODULE}/target/cucumber-reports/,${APP_MODULE}/target/screenshots/,${APP_MODULE}/target/GitHubReport.json"
                     junit "${APP_MODULE}/target/cucumber-reports/*.xml"
                     script {
-                        def androidPropertyFile = "${APP_MODULE}/target/classifications/Android_Test.properties"
-                        if (fileExists(androidPropertyFile)) {
-                            def props = readProperties interpolate: true, file: androidPropertyFile
+                        def iosPropertyFile = "${APP_MODULE}/target/classifications/Ios_Test.properties"
+                        if (fileExists(iosPropertyFile)) {
+                            def props = readProperties interpolate: true, file: iosPropertyFile
                             cucumber fileIncludePattern: "${APP_MODULE}/target/cucumber-reports/*.json",
                                     sortingMethod: 'ALPHABETICAL',
                                     classifications: [
+                                            ['key'  : 'Device Name',
+                                             'value': props.deviceName
+                                            ],
+                                            ['key'  : 'Platform Name',
+                                             'value': props.platformName
+                                            ],
+                                            ['key'  : 'Platform Version',
+                                             'value': props.platformVersion
+                                            ],
+                                            ['key'  : 'Server',
+                                             'value': props.server
+                                            ],
+                                            ['key'  : 'App',
+                                             'value': props.app
+                                            ],
                                             ['key'  : 'App Package',
                                              'value': props.appPackage
                                             ],
                                             ['key'  : 'App Activity',
                                              'value': props.appActivity
-                                            ],
-                                            ['key'  : 'App',
-                                             'value': props.app
-                                            ],
-                                            ['key'  : 'Server',
-                                             'value': props.server
-                                            ],
-                                            ['key'  : 'Platform Version',
-                                             'value': props.platformVersion
-                                            ],
-                                            ['key'  : 'Platform Name',
-                                             'value': props.platformName
-                                            ],
-                                            ['key'  : 'Device Name',
-                                             'value': props.deviceName
                                             ]
                                     ]
                         }

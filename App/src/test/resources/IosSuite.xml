@@ -1,10 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Default Test Suite" verbose="1">
     <parameter name="server" value="http://172.16.110.169:4444/wd/hub"/>
-    <test name="IOS Test" enabled="false">
+    <test name="Ios Test" enabled="false">
         <parameter name="platformName" value="ios"/>
         <parameter name="deviceName" value="iPhone XS Max"/>
         <parameter name="platformVersion" value="12.0"/>
+        <parameter name="app" value="tryit_stg.ipa"/>
         <classes>
             <class name="TestRunner"/>
         </classes>
