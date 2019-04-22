@@ -2,15 +2,10 @@ def APP_MODULE = "App"
 def MAC_WORK_SPACE
 def props
 pipeline {
-    agent none
+    agent any
 
     stages {
         stage('Slack Notification') {
-            when {
-                not {
-                    environment name: 'CHANGE_ID', value: ''
-                }
-            }
             steps("Get data") {
                 script {
                     def gitReport = readJSON file: "GitHubReport.json"
