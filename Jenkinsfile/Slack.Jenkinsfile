@@ -11,7 +11,7 @@ pipeline {
 
                 stash includes: '**', name: 'source-code', useDefaultExcludes: false
                 stash includes: "${APP_MODULE}/appfile/", name: 'data', useDefaultExcludes: false
-                slackSend (color: colorCode, message: "Success")
+                slackSend(color: '#FF0000', message: "Success")
             }
         }
     }
