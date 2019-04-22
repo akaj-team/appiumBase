@@ -1,5 +1,4 @@
 def APP_MODULE = "App"
-def MAC_WORK_SPACE
 pipeline {
     agent none
 
