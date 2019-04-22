@@ -14,19 +14,19 @@ pipeline {
                 stash includes: "${APP_MODULE}/appfile/", name: 'data', useDefaultExcludes: false
             }
         }
-
-        stage("Share data") {
-            agent {
-                label 'macos'
-            }
-            options { skipDefaultCheckout() }
-            steps {
-                unstash('data')
-                script {
-                    MAC_WORK_SPACE = pwd()
-                }
-            }
-        }
+//
+//        stage("Share data") {
+//            agent {
+//                label 'macos'
+//            }
+//            options { skipDefaultCheckout() }
+//            steps {
+//                unstash('data')
+//                script {
+//                    MAC_WORK_SPACE = pwd()
+//                }
+//            }
+//        }
 
         stage('Run Tests') {
             parallel {
