@@ -1,0 +1,28 @@
+{
+  "features": {
+    "totalFeatures": 1,
+    "failedFeature": 1,
+    "passedFeature": 0
+  },
+  "durations": {
+    "totalDuration": "00:00:37.939",
+    "pendingDuration": "00:00:00.000",
+    "undefinedDuration": "00:00:00.000",
+    "passedDuration": "00:00:00.000",
+    "failedDuration": "00:00:37.939",
+    "skippedDuration": "00:00:00.000"
+  },
+  "scenarios": {
+    "totalScenarios": 3,
+    "passedScenario": 0,
+    "failedScenario": 3
+  },
+  "steps": {
+    "skippedStep": 9,
+    "failedStep": 3,
+    "totalSteps": 12,
+    "pendingStep": 0,
+    "passedStep": 0,
+    "undefinedStep": 0
+  }
+}
