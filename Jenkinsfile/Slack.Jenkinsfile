@@ -11,7 +11,7 @@ pipeline {
             }
             steps("Get data") {
                 script {
-                    notify.sendMessage()
+                    notify.sendMessage("Android_Test.properties")
                 }
             }
         }

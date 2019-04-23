@@ -1,7 +1,6 @@
-def sendMessage() {
+def sendMessage(properties) {
     def report = readJSON file: "GitHubReport.json"
-    def androidPropertyFile = "Android_Test.properties"
-    def props = readProperties interpolate: true, file: androidPropertyFile
+    def props = readProperties interpolate: true, file: properties
 
     def buildStatus = ''
     def colorCode = '#FF0000'
