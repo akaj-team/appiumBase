@@ -1,10 +1,13 @@
 def APP_MODULE = "App"
 
 pipeline {
-    agent any
+    agent none
 
     stages {
         stage('Slack Notification') {
+            agent {
+                label 'master'
+            }
             steps("Get data") {
                 script {
                     def gitReport = readJSON file: "GitHubReport.json"
@@ -29,7 +32,7 @@ pipeline {
                     echo "${env.JOB_NAME}"
                     echo "${env.BUILD_URL}"
                     def oceanBlue = "Detail: http://172.16.110.169:8080/blue/organizations/jenkins/cm_appium/detail/PR-${env.CHANGE_ID}/${env.BUILD_NUMBER}/pipeline\n"
-                   // slackSend(color: colorCode, message: des + duration + feature + scenario + step + config + oceanBlue)
+                    // slackSend(color: colorCode, message: des + duration + feature + scenario + step + config + oceanBlue)
                 }
             }
         }
