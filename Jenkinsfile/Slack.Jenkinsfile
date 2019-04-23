@@ -18,7 +18,7 @@ pipeline {
                     } else {
                         buildStatus = "failed"
                         colorCode = '#FF0000'
-                        oceanBlue = "${env.BUILD_URL}/${env.JOB_NAME}/${env.BUILD_NUMBER}"
+                        oceanBlue = "http://172.16.110.169:8080/blue/organizations/jenkins/cm_appium/detail/PR-8/8/pipeline -- ${env.BUILD_URL}---${env.JOB_NAME}---${env.BUILD_NUMBER}"
                     }
                     echo oceanBlue
                     def des = "Pull request #${env.CHANGE_ID} build ${buildStatus} ${env.BUILD_USER}\n"
