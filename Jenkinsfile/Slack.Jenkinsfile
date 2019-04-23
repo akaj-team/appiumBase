@@ -3,8 +3,10 @@ def APP_MODULE = "App"
 pipeline {
     agent any
 
+
     stages {
         stage('Slack Notification') {
+
             steps("Get data") {
                 script {
                     def gitReport = readJSON file: "GitHubReport.json"
