@@ -10,13 +10,17 @@ pipeline {
                     def gitReport = readJSON file: "GitHubReport.json"
                     def buildStatus = ''
                     def colorCode = '#FF0000'
+                    def oceanBlue = ''
+
                     if (gitReport.steps.failedStep != 0) {
                         buildStatus = "success"
                         colorCode = '#00FF00'
                     } else {
                         buildStatus = "failed"
                         colorCode = '#FF0000'
+                        oceanBlue = "${env.BUILD_URL}/${env.JOB_NAME}/${env.BUILD_NUMBER}"
                     }
+                    echo oceanBlue
                     def des = "Pull request #${env.CHANGE_ID} build ${buildStatus}\n"
                     def duration = "Total duration:${gitReport.durations.totalDuration}\n"
                     def step = "Steps: Total:${gitReport.steps.totalSteps}, Passed:${gitReport.steps.passedStep}, Failed:${gitReport.steps.failedStep}, Skipped:${gitReport.steps.skippedStep}, Pending:${gitReport.steps.pendingStep}, Undefined:${gitReport.steps.undefinedStep}\n"
