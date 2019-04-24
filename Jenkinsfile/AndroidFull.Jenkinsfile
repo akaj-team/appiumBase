@@ -67,6 +67,7 @@ pipeline {
                                              'value': props.appActivity
                                             ]
                                     ]
+                            notify.sendMessage("${APP_MODULE}/target/GitHubReport.json", androidPropertyFile)
                         }
                     }
                     stash includes: "${APP_MODULE}/target/GitHubReport.json", name: 'cucumber-report'
