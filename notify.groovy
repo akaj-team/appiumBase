@@ -1,5 +1,6 @@
 def sendMessage(properties) {
     def report = readJSON file: "GitHubReport.json"
+
     def props = readProperties interpolate: true, file: properties
 
     def buildStatus = ''
@@ -18,7 +19,7 @@ def sendMessage(properties) {
     def feature = "- Feature: Total: ${report.features.totalFeatures}, Passed: ${report.features.passedFeature}, Failed: ${report.features.failedFeature}\n"
     def configDescription = "- Device: ${props.deviceName}, Version: ${props.platformVersion}, Platform: ${props.platformName}\n- App: ${props.app}\n- Server: ${props.server}\n"
     def oceanBlue = "- Detail: ${env.BUILD_URL}\n"
-    slackSend(color: colorCode, message: description + duration + feature + scenario + step + configDescription + oceanBlue)
+  //  slackSend(color: colorCode, message: description + duration + feature + scenario + step + configDescription + oceanBlue)
 }
 
 return this
