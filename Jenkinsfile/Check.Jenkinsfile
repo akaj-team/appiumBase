@@ -51,12 +51,12 @@ pipeline {
 
             post {
                 success {
-                    stash includes: "${APP_MODULE}/build/reports/detekt/detekt-checkstyle.xml", name: 'detekt-checkstyle'
+               //     stash includes: "${APP_MODULE}/build/reports/detekt/detekt-checkstyle.xml", name: 'detekt-checkstyle'
                     echo 'Detekt Success!!!'
                 }
 
                 failure {
-                    stash includes: "${APP_MODULE}/build/reports/detekt/detekt-checkstyle.xml", name: 'detekt-checkstyle'
+             //       stash includes: "${APP_MODULE}/build/reports/detekt/detekt-checkstyle.xml", name: 'detekt-checkstyle'
                     echo 'Detekt failure!!!'
                 }
             }
