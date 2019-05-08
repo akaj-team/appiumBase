@@ -3,11 +3,10 @@
     <parameter name="server" value="http://172.16.110.169:4444/wd/hub"/>
     <test name="Android Test" enabled="true">
         <parameter name="platformName" value="android"/>
-        <parameter name="deviceName" value="Galaxy S8"/>
-        <parameter name="platformVersion" value="8.0.0"/>
+        <parameter name="deviceName" value="PIXEL XL API 28"/>
         <parameter name="appActivity" value="jp.co.trygroup.tryit.student.ui.initial.SplashActivity_"/>
         <parameter name="appPackage" value="jp.co.trygroup.tryit.student.ui.staging"/>
-        <parameter name="app" value="jp.co.trygroup.tryit.student.ui.staging_v3.1.20.apk"/>
+        <parameter name="app" value="jp.co.trygroup.tryit.student.ui.staging_v3.1.22.apk"/>
         <classes>
             <class name="CheckTestRunner"/>
         </classes>
