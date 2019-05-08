@@ -56,6 +56,7 @@ pipeline {
                 }
 
                 failure {
+                    stash includes: "${APP_MODULE}/build/reports/detekt/detekt-checkstyle.xml", name: 'detekt-checkstyle'
                     echo 'Detekt failure!!!'
                 }
             }
